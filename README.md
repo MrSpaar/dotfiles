@@ -7,4 +7,5 @@ Configuration files, scripts and modules I use with my [Arch](https://archlinux.
 - Media keys : volume, mic, brightness, lock, screenshot (+ screencast) and more
 - Configurable theme switcher for GTK3 and GTK4 apps, Dunst, Rofi and wallpaper (using [hyprpaper](https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/))
 
-For more informations, look at the [wiki](https://github.com/MrSpaar/dotfiles/wiki).
+> [!TIP]
+> For more informations, look at the [wiki](https://github.com/MrSpaar/dotfiles/wiki).
