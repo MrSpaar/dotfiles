@@ -1,0 +1,129 @@
+// -*- mode: jsonc -*-
+{
+    "output": "eDP-1",
+    "height": 34,
+    "spacing": 4,
+    "modules-left": [
+        "cpu",
+        "memory",
+        "temperature",
+        "keyboard-state",
+        "tray"
+    ],
+    "modules-center": [
+        "clock"
+        // "cffi/audio"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "cffi/theme-switcher",
+        "backlight",
+        "network",
+        "battery",
+        "custom/power"
+    ],
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a %d/%m/%Y %H:%M}  ",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "interval": 5,
+        "tooltip": false,
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", ""]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "tooltip": false,
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "/home/mrspaar/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "poweroff",
+            "reboot": "reboot",
+            "suspend": "dm-tool lock && systemctl sleep",
+            "logout": "hyprctl dispatch exit 1"
+        }
+    },
+    "cffi/theme-switcher": {
+        "module_path": "/home/mrspaar/.config/waybar/modules/build/theme-switcher.so",
+
+        "dark_theme_dunst_bg": "#212121",
+        "dark_theme_dunst_fg": "#ffffff",
+        "dark_theme_rofi": "./rounded-dark.rasi",
+        "dark_theme_gtk3": "adw-gtk3-dark",
+        "dark_theme_wallpaper": "~/Media/BG_dark.jpg",
+
+        "light_theme_dunst_bg": "#ededed",
+        "light_theme_dunst_fg": "#000000",
+        "light_theme_rofi": "./rounded-light.rasi",
+        "light_theme_gtk3": "adw-gtk3",
+        "light_theme_wallpaper": "~/Media/BG_light.jpg"
+    },
+    "cffi/audio": {
+        "module_path": "/home/mrspaar/.config/waybar/modules/build/audio.so"
+    }
+}
