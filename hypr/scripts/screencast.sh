@@ -25,7 +25,7 @@ fi
 PID=$!
 MODE=$(bash ~/.config/hypr/scripts/theme.sh)
 
-dunstify -b "Recording..." -A "action, Stop" -i ~/.local/share/icons/reg-$MODE.png
+dunstify -b "Recording..." -A "action, Stop" -i ~/.config/hypr/icons/reg-$MODE.png
 kill $PID
 echo -n "file://$FILENAME.$EXT" | wl-copy -t text/uri-list
 

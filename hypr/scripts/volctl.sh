@@ -19,13 +19,13 @@ fi
 
 if [ "$MUTED" == "[MUTED]" ]; then
     URGENCY=low
-    ICON=~/.local/share/icons/$TYPE-mute-$MODE.png
+    ICON=~/.config/hypr/icons/$TYPE-mute-$MODE.png
 elif [ $VOLUME -lt 33 ]; then
-    ICON=~/.local/share/icons/$TYPE-min-$MODE.png
+    ICON=~/.config/hypr/icons/$TYPE-min-$MODE.png
 elif [ $VOLUME -lt 66 ]; then
-    ICON=~/.local/share/icons/$TYPE-mid-$MODE.png
+    ICON=~/.config/hypr/icons/$TYPE-mid-$MODE.png
 else
-    ICON=~/.local/share/icons/$TYPE-max-$MODE.png
+    ICON=~/.config/hypr/icons/$TYPE-max-$MODE.png
 fi
 
 echo $ICON

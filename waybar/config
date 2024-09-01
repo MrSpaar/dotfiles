@@ -12,7 +12,6 @@
     ],
     "modules-center": [
         "clock"
-        // "cffi/audio"
     ],
     "modules-right": [
         "pulseaudio",
@@ -123,7 +122,4 @@
         "light_theme_gtk3": "adw-gtk3",
         "light_theme_wallpaper": "~/Media/BG_light.jpg"
     },
-    "cffi/audio": {
-        "module_path": "/home/mrspaar/.config/waybar/modules/build/audio.so"
-    }
 }
