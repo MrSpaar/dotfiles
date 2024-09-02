@@ -9,7 +9,7 @@ VOLUME=$(wpctl get-volume @DEFAULT_$1@ | awk '{print $2 * 100}')
 MUTED=$(wpctl get-volume @DEFAULT_$1@ | grep -o '\[MUTED\]')
 
 URGENCY=normal
-MODE=$(bash ~/.config/hypr/scripts/theme.sh)
+MODE=$(bash ~/.config/waybar/scripts/theme.sh)
 
 if [ $1 == "SOURCE" ]; then
     TYPE="mic"; LABEL="Input"; ID=69

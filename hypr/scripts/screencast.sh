@@ -23,7 +23,7 @@ fi
 
 
 PID=$!
-MODE=$(bash ~/.config/hypr/scripts/theme.sh)
+MODE=$(bash ~/.config/waybar/scripts/theme.sh)
 
 dunstify -b "Recording..." -A "action, Stop" -i ~/.config/hypr/icons/reg-$MODE.png
 kill $PID

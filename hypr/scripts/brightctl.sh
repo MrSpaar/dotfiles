@@ -4,7 +4,7 @@ brightnessctl s $1 > /dev/null
 
 BRIGHTNESS=$(brightnessctl -m | awk -F ',' '{print $4}')
 BRIGHTNESS="${BRIGHTNESS%\%}"
-MODE=$(bash ~/.config/hypr/scripts/theme.sh)
+MODE=$(bash ~/.config/waybar/scripts/theme.sh)
 
 if [ $BRIGHTNESS -lt 33 ]; then
     ICON=~/.config/hypr/icons/bri-min-$MODE.png
