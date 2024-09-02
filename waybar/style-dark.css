@@ -1,0 +1,134 @@
+* {
+    font-size: 13px;
+    font-family: "Liberation Mono";
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+.modules-left:first-child {
+    margin-left: 5px;
+}
+
+.module,
+button {
+    color: #fff;
+    margin-top: 5px;
+    padding: 0 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+#custom-theme-switcher.light {
+    background-color: RGBA(30, 144, 255, 0.5);
+}
+
+#custom-theme-switcher.dark {
+    background-color: RGBA(25, 25, 112, 0.5);
+}
+
+#clock {
+    background-color: RGBA(100, 114, 125, 0.5);
+}
+
+#cpu {
+    background-color: RGBA(46, 204, 113, 0.5);
+}
+
+#memory {
+    background-color: RGBA(155, 89, 182, 0.5);
+}
+
+#disk {
+    background-color: RGBA(150, 75, 0, 0.5);
+}
+
+#backlight {
+    background-color: RGBA(144, 177, 177, 0.5);
+}
+
+#network {
+    padding-right: 15px;
+    background-color: RGBA(41, 128, 185, 0.5);
+}
+
+#network.disconnected {
+    background-color: RGBA(245, 60, 60, 0.5);
+}
+
+#pulseaudio {
+    background-color: RGBA(241, 196, 15, 0.5);
+}
+
+#pulseaudio.muted {
+    color: #2a5c45;
+    background-color: RGBA(144, 177, 177, 0.5);
+}
+
+#temperature {
+    background-color: RGBA(240, 147, 43, 0.5);
+}
+
+#temperature.critical {
+    background-color: RGBA(235, 77, 75, 0.5);
+}
+
+#battery {
+    background-color: RGBA(255, 255, 255, 0.5);
+    padding-right: 15px;
+}
+
+#battery.charging,
+#battery.plugged {
+    background-color: RGBA(38, 166, 91, 0.5);
+}
+
+@keyframes blink {
+    to {
+        background-color: RGBA(255, 255, 255, 0.5);
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: RGBA(245, 60, 60, 0.5);
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray {
+    background-color: RGBA(41, 128, 185, 0.5);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: RGBA(235, 77, 75, 0.5);
+}
+
+#keyboard-state {
+    background: RGBA(151, 225, 173, 0.5);
+}
+
+#keyboard-state > label:first-child {
+    padding-left: 0px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}

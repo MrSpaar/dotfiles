@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 brightnessctl s $1 > /dev/null
 
 

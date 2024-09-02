@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 if [ $2 == "toggle" ]; then
     wpctl set-mute @DEFAULT_$1@ toggle
 else

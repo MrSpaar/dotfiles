@@ -1,0 +1,6 @@
+@import url("style-dark.css");
+
+.module,
+button {
+    color: #000000;
+}

@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 if [ -n "$1" ]; then
     DIR="$1"
 else
