@@ -49,7 +49,7 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 5
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 1
@@ -100,13 +100,13 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#64727dfe"
 
     # Size of gap to display between notifications - requires a compositor.
-    # If value is greater than 0, separator_height will be ignored and a border
+    # If value is greater than 0, separator_height will be ignored and a wborder
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
     gap_size = 0

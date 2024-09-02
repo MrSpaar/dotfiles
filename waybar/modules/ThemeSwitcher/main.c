@@ -3,28 +3,32 @@
 #include <stdlib.h>
 
 
-#define CONFIG_COUNT 12
+#define CONFIG_COUNT 14
 #define CURRENT(var) config.var[config.index]
 #define OTHER(var) config.var[(config.index+1) % 2]
 
 struct {
     int index;
-    char* gtk3[2];
+
     char* label[2];
     char* scheme[2];
     char* wallpaper[2];
+
+    char* qt[2];
+    char* gtk3[2];
 
     char *rofi[2];
     char* dunst_fg[2];
     char* dunst_bg[2];
 } config = {
     0,
-    {NULL, NULL},
     {"Light ☀️", "Dark 🌕"},
     {"light", "dark"},
     {NULL, NULL},
     {NULL, NULL},
     {NULL, NULL},
+    {NULL, NULL},
+    {NULL, NULL}
 };
 
 struct {
@@ -32,6 +36,8 @@ struct {
     char **dest;
     int allocated;
 } settings[CONFIG_COUNT] = {
+    {"light_theme_qt", config.qt, 0},
+    {"dark_theme_qt", config.qt + 1, 0},
     {"light_theme_gtk3", config.gtk3, 0},
     {"dark_theme_gtk3", config.gtk3 + 1, 0},
     {"dark_theme_rofi", config.rofi, 0},
@@ -85,6 +91,15 @@ void apply_theme() {
             command, sizeof(command),
             "sed -i 's|@theme \"%s\"|@theme \"%s\"|' ~/.config/rofi/config.rasi",
             CURRENT(rofi), OTHER(rofi)
+        );
+        system(command);
+    }
+
+    if (CURRENT(qt) != NULL) {
+        snprintf(
+            command, sizeof(command),
+            "sed -i '/style=%s/c\\style=%s' ~/.config/qt6ct/qt6ct.conf",
+            OTHER(qt), CURRENT(qt)
         );
         system(command);
     }

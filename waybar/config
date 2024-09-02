@@ -1,8 +1,8 @@
 // -*- mode: jsonc -*-
 {
-    "output": "eDP-1",
-    "height": 34,
+    "output": "DP-1",
     "spacing": 4,
+    "reload_style_on_change": true,
     "modules-left": [
         "cpu",
         "memory",
@@ -110,12 +110,14 @@
     "cffi/theme-switcher": {
         "module_path": "/home/mrspaar/.config/waybar/modules/build/theme-switcher.so",
 
+        "dark_theme_qt": "Adwaita-Dark",
         "dark_theme_dunst_bg": "#212121",
         "dark_theme_dunst_fg": "#ffffff",
         "dark_theme_rofi": "./rounded-dark.rasi",
         "dark_theme_gtk3": "adw-gtk3-dark",
         "dark_theme_wallpaper": "~/Media/BG_dark.jpg",
 
+        "light_theme_qt": "Adwaita",
         "light_theme_dunst_bg": "#ededed",
         "light_theme_dunst_fg": "#000000",
         "light_theme_rofi": "./rounded-light.rasi",
