@@ -4,3 +4,12 @@
 button {
     color: #000000;
 }
+
+.modules-left .module,
+.modules-center .module {
+    color: #fff;
+}
+
+#pulseaudio.muted {
+    color: #000;
+}

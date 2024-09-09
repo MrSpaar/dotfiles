@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "output": "DP-1",
+    "output": ["DP-1"],
     "spacing": 4,
     "reload_style_on_change": true,
     "modules-left": [
@@ -47,7 +47,7 @@
     "temperature": {
         "interval": 5,
         "tooltip": false,
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", "", ""]
@@ -82,8 +82,8 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰝟 {icon} {format_source}",
         "format-muted": "󰝟 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "󰍭",
+        "format-source": " {volume}% ",
+        "format-source-muted": " 󰍭",
         "format-icons": {
             "headphone": "",
             "hands-free": "",

@@ -12,7 +12,7 @@ window#waybar.hidden {
 }
 
 .modules-left:first-child {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .module,
@@ -37,10 +37,12 @@ button {
 }
 
 #cpu {
+    padding-right: 15px;
     background-color: RGBA(46, 204, 113, 0.5);
 }
 
 #memory {
+    padding-right: 15px;
     background-color: RGBA(155, 89, 182, 0.5);
 }
 
@@ -66,7 +68,7 @@ button {
 }
 
 #pulseaudio.muted {
-    color: #2a5c45;
+    color: #fff;
     background-color: RGBA(144, 177, 177, 0.5);
 }
 
