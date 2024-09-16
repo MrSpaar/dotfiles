@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "output": ["DP-1"],
+    "output": ["eDP-1", "DP-1"],
     "spacing": 4,
     "reload_style_on_change": true,
     "modules-left": [
@@ -80,10 +80,10 @@
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-source": " {volume}% ",
-        "format-source-muted": " 󰍭",
+        "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",

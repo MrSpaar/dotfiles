@@ -19,7 +19,7 @@ window#waybar.hidden {
 button {
     color: #fff;
     margin-top: 5px;
-    padding: 0 10px;
+    padding: 2.5px 7.5px;
     font-weight: bold;
     border-radius: 3px;
 }
@@ -37,12 +37,12 @@ button {
 }
 
 #cpu {
-    padding-right: 15px;
+    padding-right: 12.5px;
     background-color: RGBA(46, 204, 113, 0.5);
 }
 
 #memory {
-    padding-right: 15px;
+    padding-right: 12.5px;
     background-color: RGBA(155, 89, 182, 0.5);
 }
 
@@ -82,7 +82,7 @@ button {
 
 #battery {
     background-color: RGBA(255, 255, 255, 0.5);
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 #battery.charging,
