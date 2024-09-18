@@ -89,7 +89,7 @@
         "format": "⏻ ",
         "tooltip": false,
         "menu": "on-click",
-        "menu-file": "/home/mrspaar/.config/waybar/power_menu.xml",
+        "menu-file": "~/.config/waybar/power_menu.xml",
         "menu-actions": {
             "shutdown": "poweroff",
             "reboot": "reboot",
