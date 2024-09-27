@@ -1,15 +1,6 @@
 @import url("style-dark.css");
 
-.module,
-button {
-    color: #000000;
-}
-
-.modules-left .module,
-.modules-center .module {
-    color: #fff;
-}
-
-#pulseaudio.muted {
-    color: #000;
+.module {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }

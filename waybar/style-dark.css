@@ -1,93 +1,42 @@
-* {
-    font-size: 13px;
-    font-family: "Liberation Mono";
-}
-
 window#waybar {
     background-color: transparent;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
 }
 
 .modules-left:first-child {
     margin-left: 10px;
 }
 
-.module,
-button {
+.modules-right:last-child {
+    margin-right: 10px;
+}
+
+.module {
     color: #fff;
-    margin-top: 5px;
-    padding: 2.5px 7.5px;
+    background-color: #383838;
+    font-size: 13px;
     font-weight: bold;
+    margin: 5px 0 0 0;
+    padding: 2.5px 7.5px;
     border-radius: 3px;
-}
-
-#custom-theme-switcher.light {
-    background-color: RGBA(30, 144, 255, 0.5);
-}
-
-#custom-theme-switcher.dark {
-    background-color: RGBA(25, 25, 112, 0.5);
+    font-family: "Liberation Mono";
 }
 
 #clock {
-    background-color: RGBA(100, 114, 125, 0.5);
+    padding-right: 4px;
 }
 
+#memory,
 #cpu {
-    padding-right: 12.5px;
-    background-color: RGBA(46, 204, 113, 0.5);
-}
-
-#memory {
-    padding-right: 12.5px;
-    background-color: RGBA(155, 89, 182, 0.5);
-}
-
-#disk {
-    background-color: RGBA(150, 75, 0, 0.5);
-}
-
-#backlight {
-    background-color: RGBA(144, 177, 177, 0.5);
-}
-
-#network {
-    padding-right: 15px;
-    background-color: RGBA(41, 128, 185, 0.5);
-}
-
-#network.disconnected {
-    background-color: RGBA(245, 60, 60, 0.5);
-}
-
-#pulseaudio {
-    background-color: RGBA(241, 196, 15, 0.5);
-}
-
-#pulseaudio.muted {
-    color: #fff;
-    background-color: RGBA(144, 177, 177, 0.5);
-}
-
-#temperature {
-    background-color: RGBA(240, 147, 43, 0.5);
-}
-
-#temperature.critical {
-    background-color: RGBA(235, 77, 75, 0.5);
-}
-
-#battery {
-    background-color: RGBA(255, 255, 255, 0.5);
     padding-right: 10px;
 }
 
-#battery.charging,
-#battery.plugged {
-    background-color: RGBA(38, 166, 91, 0.5);
+#battery,
+#network {
+    padding-right: 12px;
+}
+
+#custom-power {
+    padding-right: 1px;
 }
 
 @keyframes blink {
@@ -104,33 +53,4 @@ button {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#tray {
-    background-color: RGBA(41, 128, 185, 0.5);
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: RGBA(235, 77, 75, 0.5);
-}
-
-#keyboard-state {
-    background: RGBA(151, 225, 173, 0.5);
-}
-
-#keyboard-state > label:first-child {
-    padding-left: 0px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
 }
