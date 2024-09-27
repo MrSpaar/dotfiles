@@ -21,6 +21,10 @@ window#waybar {
     font-family: "Liberation Mono";
 }
 
+#custom-power {
+    padding-right: 1px;
+}
+
 #clock {
     padding-right: 4px;
 }
@@ -35,15 +39,15 @@ window#waybar {
     padding-right: 12px;
 }
 
-#custom-power {
-    padding-right: 1px;
-}
-
 @keyframes blink {
     to {
         background-color: RGBA(255, 255, 255, 0.5);
         color: #000000;
     }
+}
+
+#battery.charging {
+    background-color: RGBA(38, 166, 91, 0.4);
 }
 
 #battery.critical:not(.charging) {
