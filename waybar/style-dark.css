@@ -1,3 +1,7 @@
+* {
+    font-family: "Liberation Mono";
+}
+
 window#waybar {
     background-color: transparent;
 }
@@ -19,7 +23,8 @@ window#waybar {
 .module,
 #hardware,
 #light,
-#system {
+#system,
+#clock {
     border-radius: 3px;
     background-color: #383838;
 }
@@ -35,15 +40,10 @@ window#waybar {
     font-size: 13px;
     font-weight: bold;
     padding: 2.5px 7.5px;
-    font-family: "Liberation Mono";
 }
 
 #custom-power {
     padding-right: 1px;
-}
-
-#clock {
-    padding-right: 4px;
 }
 
 #memory {

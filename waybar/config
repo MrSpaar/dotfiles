@@ -1,70 +1,13 @@
-// -*- mode: jsonc -*-
 {
     "output": ["eDP-1"],
     "spacing": 4,
     "reload_style_on_change": true,
+
     "modules-left": [
         "battery",
         "group/hardware",
         "tray"
     ],
-    "modules-center": [
-        "clock",
-    ],
-    "modules-right": [
-        "group/system",
-        "group/light",
-        "custom/power"
-    ],
-    "group/hardware": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "memory"
-        ]
-    },
-    "group/light": {
-        "orientation": "horizontal",
-        "modules": [
-            "backlight",
-            "custom/theme-switcher",
-        ]
-    },
-    "group/system": {
-        "orientation": "horizontal",
-        "modules": [
-            "pulseaudio",
-            "network",
-        ]
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "tray": {
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%a %d/%m/%Y %H:%M}  ",
-        "tooltip": false
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "backlight": {
-        "format": "{percent}% {icon}",
-        "tooltip": false,
-        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
-    },
     "battery": {
         "states": {
             "warning": 30,
@@ -74,16 +17,37 @@
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
-    "network": {
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected ⚠",
-        "on-click": "~/Dots/waybar/dialaar/build/bin"
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory"
+        ]
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "tray": {
+        "spacing": 10
+    },
+
+    "modules-right": [
+        "group/system",
+        "group/light",
+        "group/clock"
+    ],
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "network"
+        ]
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -103,17 +67,25 @@
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
-    "custom/power": {
-        "format": "⏻ ",
+    "network": {
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "~/Dots/waybar/dialaar/build/bin"
+    },
+    "group/light": {
+        "orientation": "horizontal",
+        "modules": [
+            "backlight",
+            "custom/theme-switcher"
+        ]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
         "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "~/.config/waybar/power_menu.xml",
-        "menu-actions": {
-            "shutdown": "poweroff",
-            "reboot": "reboot",
-            "suspend": "dm-tool lock && systemctl sleep",
-            "logout": "hyprctl dispatch exit 1"
-        }
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
     "custom/theme-switcher": {
         "tooltip": false,
@@ -126,5 +98,38 @@
         "signal": 8,
         "exec": "bash ~/.config/waybar/scripts/theme.sh json",
         "on-click": "bash ~/.config/waybar/scripts/switch.sh"
+    },
+    "group/clock": {
+        "orientation": "horizontal",
+            "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "clock",
+            "custom/poweroff",
+            "custom/reboot",
+            "custom/lock"
+        ]
+    },
+    "clock": {
+        "format": "{:%a %d/%m/%Y %H:%M} ",
+        "tooltip": false
+    },
+    "custom/poweroff": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "poweroff"
+    },
+    "custom/reboot": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/lock": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "dm-tool lock && systemctl sleep"
     }
 }
