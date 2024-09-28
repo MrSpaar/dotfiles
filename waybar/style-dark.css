@@ -40,30 +40,42 @@ window#waybar {
     font-size: 13px;
     font-weight: bold;
     padding: 2.5px 7.5px;
+    transition: color 0.2s ease-in-out;
+}
+
+#pulseaudio:hover,
+#network:hover,
+#clock:hover,
+#custom-theme-switcher:hover,
+#custom-poweroff:hover,
+#custom-reboot:hover,
+#custom-lock:hover {
+    color: #ccc;
+}
+
+#backlight {
+    padding-right: 0;
+}
+
+#pulseaudio,
+#custom-theme-switcher {
+    padding-right: 3px;
 }
 
 #clock {
     padding-right: 5px;
 }
 
+#network {
+    padding-right: 8px;
+}
+
 #memory {
     padding-right: 10px;
 }
 
-#network {
-    padding-right: 14px;
-}
-
 #battery {
     padding-right: 12px;
-}
-
-#pulseaudio {
-    padding-right: 3px;
-}
-
-#backlight {
-    padding-right: 0;
 }
 
 @keyframes blink {
