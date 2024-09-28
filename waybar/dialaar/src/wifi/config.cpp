@@ -1,4 +1,6 @@
 #include "include/defines.h"
+#include <sstream>
+#include <unordered_map>
 #include "include/wifi/config.h"
 
 
@@ -88,6 +90,14 @@ bool WifiConfig::update(const APData &data) {
         return false;
     }
 
+    std::unordered_map<std::string, std::string> config;
+
+    std::string line;
+    std::istringstream stream(out);
+
+    while(std::getline(stream, line)) {
+
+    }
 
     return true;
 }

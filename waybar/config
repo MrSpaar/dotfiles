@@ -1,24 +1,42 @@
 // -*- mode: jsonc -*-
 {
-    "output": ["eDP-1", "DP-1"],
+    "output": ["eDP-1"],
     "spacing": 4,
     "reload_style_on_change": true,
     "modules-left": [
         "battery",
-        "cpu",
-        "memory",
+        "group/hardware",
         "tray"
     ],
     "modules-center": [
         "clock",
     ],
     "modules-right": [
-        "pulseaudio",
-        "backlight",
-        "network",
-        "custom/theme-switcher",
+        "group/system",
+        "group/light",
         "custom/power"
     ],
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory"
+        ]
+    },
+    "group/light": {
+        "orientation": "horizontal",
+        "modules": [
+            "backlight",
+            "custom/theme-switcher",
+        ]
+    },
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "network",
+        ]
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
