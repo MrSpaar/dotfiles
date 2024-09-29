@@ -80,20 +80,20 @@
         "orientation": "horizontal",
         "modules": [
             "backlight",
-            "custom/theme-switcher"
+            "custom/scheme-switcher"
         ]
     },
     "backlight": {
         "format": "{percent}% {icon}",
         "tooltip": false,
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"]
     },
-    "custom/theme-switcher": {
-        "tooltip": false,
+    "custom/scheme-switcher": {
+        "tooltip-format": "Switch scheme",
         "format": "{icon}",
         "format-icons": {
-            "dark": "Dark ",
-            "light": "Light 󰖨"
+            "dark": "",
+            "light": ""
         },
         "return-type": "json",
         "signal": 8,
@@ -120,17 +120,17 @@
     },
     "custom/poweroff": {
         "format": "⏻",
-        "tooltip": false,
+        "tooltip-format": "Shutdown",
         "on-click": "poweroff"
     },
     "custom/reboot": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Reboot",
         "on-click": "reboot"
     },
     "custom/lock": {
         "format": "",
-        "tooltip": false,
+        "tooltip-format": "Sleep",
         "on-click": "dm-tool lock && systemctl sleep"
     }
 }
