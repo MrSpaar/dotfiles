@@ -86,14 +86,14 @@
     "backlight": {
         "format": "{percent}% {icon}",
         "tooltip": false,
-        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+        "format-icons": ["", "", "", "", ""]
     },
     "custom/theme-switcher": {
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "dark": "Dark 🌕",
-            "light": "Light ☀️"
+            "dark": "Dark ",
+            "light": "Light 󰖨"
         },
         "return-type": "json",
         "signal": 8,

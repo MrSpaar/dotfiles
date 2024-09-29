@@ -1,7 +1,3 @@
-window#waybar {
-    background-color: transparent;
-}
-
 .modules-left,
 .modules-center,
 .modules-right {
@@ -17,17 +13,24 @@ window#waybar {
     margin-right: 10px;
 }
 
+* {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Liberation Mono";
+}
+
 .module,
 #hardware,
 #light,
 #system,
 #clock {
-    margin-right: 2.5px;
     border-radius: 3px;
-    background-color: #383838;
-    font-family: "Liberation Mono";
+    color: @theme_text_color;
+    background-color: @headerbar_bg_color;
+    transition: color 0.2s ease-in-out;
 }
 
+window#waybar,
 #hardware .module,
 #light .module,
 #system .module,
@@ -36,41 +39,25 @@ window#waybar {
 }
 
 .module {
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 2.5px 7.5px;
-    transition: color 0.2s ease-in-out;
+    padding: 5px 6px 3px 6px;
 }
 
 #pulseaudio:hover,
 #network:hover,
-#clock:hover,
 #custom-theme-switcher:hover,
 #custom-poweroff:hover,
 #custom-reboot:hover,
 #custom-lock:hover {
-    color: #ccc;
-}
-
-#backlight {
-    padding-right: 0;
-}
-
-#pulseaudio,
-#custom-theme-switcher {
-    padding-right: 3px;
+    color: @accent_color;
 }
 
 #clock {
-    padding-right: 5px;
+    padding-right: 6px;
 }
 
-#network {
-    padding-right: 8px;
-}
-
-#memory {
+#network,
+#custom-theme-switcher,
+#cpu {
     padding-right: 10px;
 }
 
@@ -78,19 +65,17 @@ window#waybar {
     padding-right: 12px;
 }
 
+#battery.charging {
+    background-color: @success_color;
+}
+
 @keyframes blink {
     to {
-        background-color: RGBA(255, 255, 255, 0.5);
-        color: #000000;
+        background-color: @error_bg_color;
     }
 }
 
-#battery.charging {
-    background-color: RGBA(38, 166, 91, 0.4);
-}
-
 #battery.critical:not(.charging) {
-    background-color: RGBA(245, 60, 60, 0.5);
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
