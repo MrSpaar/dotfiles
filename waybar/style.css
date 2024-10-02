@@ -81,6 +81,7 @@ window#waybar,
 }
 
 #battery.charging {
+    padding-right: 14px;
     background-color: RGBA(38, 166, 91, 0.4);
 }
 
