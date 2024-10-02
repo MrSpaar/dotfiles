@@ -65,7 +65,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "on-click": "pavucontrol"
     },
     "network": {
         "format-wifi": "{essid} {icon}",
@@ -86,7 +86,7 @@
     "backlight": {
         "format": "{percent}% {icon}",
         "tooltip": false,
-        "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"]
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
     "custom/scheme-switcher": {
         "tooltip-format": "Switch scheme",
