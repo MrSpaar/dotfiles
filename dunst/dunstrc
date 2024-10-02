@@ -333,13 +333,13 @@
 [urgency_low]
     background = "#212121"
     foreground = "#888888"
-    timeout = 10
+    timeout = 5
     highlight = "#64727dfe"
 
 [urgency_normal]
     background = "#212121"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
     override_pause_level = 30
     highlight = "#64727dfe"
 
@@ -349,5 +349,4 @@
     timeout = 0
     frame_color = "#FF7276"
     override_pause_level = 60
-    #default_icon = /path/to/icon
     highlight = "#64727dfe"
