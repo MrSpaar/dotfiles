@@ -6,6 +6,7 @@ Configuration files, scripts and modules I use with my [Arch](https://archlinux.
 - [Waybar](https://github.com/Alexays/Waybar) to display system informations with bluetooth and wifi control (WIP)
 - Media keys : volume, mic, brightness, lock, screenshot (+ screencast) and more
 - Configurable theme switcher for GTK3, GTK4, qt5 and qt6 apps, Dunst, Rofi and wallpaper (using [hyprpaper](https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/))
+- GUI `iwd` manager (supports PSK, PWD, TLS, TTLS and PEAP)
 
 > [!TIP]
 > For more informations, look at the [wiki](https://github.com/MrSpaar/dotfiles/wiki).
