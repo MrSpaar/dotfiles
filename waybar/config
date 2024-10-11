@@ -131,6 +131,6 @@
     "custom/lock": {
         "format": "",
         "tooltip-format": "Sleep",
-        "on-click": "dm-tool lock && systemctl sleep"
+        "on-click": "THEME=$(~/.config/waybar/scripts/theme.sh) hyprlock & sleep 0.7 && systemctl suspend"
     }
 }

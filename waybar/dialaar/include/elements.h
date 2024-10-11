@@ -1,5 +1,7 @@
 #pragma once
+
 #include <gtkmm.h>
+#include <type_traits>
 
 
 struct APData {
@@ -37,6 +39,10 @@ private:
 class FilePicker: public Gtk::Overlay {
 public:
     FilePicker();
+    std::string get_text() { return entry.get_text(); }
+    void set_editable(bool b) { entry.set_editable(b); }
+    void set_can_focus(bool b) { entry.set_can_focus(b); }
+    void set_text(const std::string &text) { entry.set_text(text); }
 private:
     void onPickerClicked();
 private:
@@ -48,10 +54,16 @@ private:
 template<typename T>
 class ConfigField: public Gtk::Box {
 public:
-    ConfigField() {
+    ConfigField(const char *name) {
         label.set_xalign(0);
+        label.set_label(name);
         label.set_size_request(100, -1);
         widget.set_hexpand(true);
+
+        if constexpr (!std::is_same_v<T, Gtk::ComboBoxText>) {
+            widget.set_editable(true);
+            widget.set_can_focus(true);
+        }
 
         set_spacing(5);
         set_hexpand(true);
@@ -62,6 +74,11 @@ public:
 
     void setLabel(const char *text) {
         label.set_label(text);
+    }
+
+    void setVisible(bool visibility) {
+        if (visibility) show();
+        else hide();
     }
 public:
     T widget;

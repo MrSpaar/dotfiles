@@ -57,14 +57,14 @@ window#waybar,
     padding-right: 6px;
 }
 
+#battery {
+    padding-right: 12px;
+}
+
 #network,
 #cpu,
 #memory {
     padding-right: 10px;
-}
-
-#battery {
-    padding-right: 12px;
 }
 
 #custom-scheme-switcher {

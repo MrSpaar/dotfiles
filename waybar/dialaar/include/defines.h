@@ -4,13 +4,6 @@
 #define APP_SIZE 400, 300
 
 
-#define PSK_METHOD "PSK (Password only)"
-#define PWD_METHOD "EAP-PWD (Mail and password)"
-#define PEAP_METHOD "PEAP (Two phase login)"
-#define TTLS_METHOD "TTLS (Two phase login)"
-#define TLS_METHOD "TLS (Certificate Login)"
-
-
 #define CONFIG_ICON "emblem-system-symbolic"
 #define FILE_PICKER_ICON "folder-documents-symbolic"
 

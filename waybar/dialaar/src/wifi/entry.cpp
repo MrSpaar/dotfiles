@@ -61,10 +61,9 @@ bool WifiEntry::update(const APData &updated) {
 
 void WifiEntry::bindConfig(WifiConfig &widget) {
     configButton.signal_clicked().connect([&]() {
-        if (widget.update(data)) {
-            get_parent()->get_parent()->get_parent()->hide();
-            widget.show();
-        }
+        widget.update(data);
+        get_parent()->get_parent()->get_parent()->hide();
+        widget.show();
     });
 }
 

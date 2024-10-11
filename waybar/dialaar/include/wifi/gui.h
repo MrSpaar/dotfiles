@@ -2,7 +2,6 @@
 
 #include <thread>
 #include <atomic>
-#include <gtkmm.h>
 #include <netlink/netlink.h>
 
 #include "config.h"

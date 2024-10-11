@@ -17,7 +17,6 @@ FilePicker::FilePicker() {
     add_overlay(button);
 }
 
-
 void FilePicker::onPickerClicked() {
     auto dialog = Gtk::make_managed<Gtk::FileChooserDialog>(
         "Please choose a file", Gtk::FileChooser::Action::OPEN

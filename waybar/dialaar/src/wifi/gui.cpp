@@ -1,4 +1,6 @@
+#include <thread>
 #include <unistd.h>
+#include <unordered_set>
 #include <netlink/msg.h>
 #include <netlink/socket.h>
 
@@ -25,6 +27,23 @@ WifiGUI::WifiGUI() {
 
     cssProvider = Gtk::CssProvider::create();
     cssProvider->load_from_data(R"(
+        entry {
+            outline-color: @blue_1;
+        }
+
+        entry selection {
+            color: black;
+            background-color: RGBA(153, 193, 241, 0.5);
+        }
+
+        .confirm {
+            color: @success_color;
+        }
+
+        .cancel {
+            color: @destructive_color;
+        }
+
         .nobg {
             font-size: 18px;
             background: transparent;
@@ -52,10 +71,13 @@ bool WifiGUI::onKeyPressed(guint keyval, guint, Gdk::ModifierType state) {
     if (keyval != GDK_KEY_Escape) return true;
 
     close();
-    if (sock != nullptr) { nl_socket_free(sock); }
+    running.store(false);
+
+    if (sock != nullptr) {
+        nl_socket_free(sock);
+    }
 
     if (eventThread.joinable()) {
-        running.store(false);
         ::write(pipe[1], "stop", 4);
         eventThread.join();
     }
@@ -72,7 +94,7 @@ int handleEvent(struct nl_msg *msg, void *arg) {
 }
 
 void WifiGUI::eventLoop() {
-    Glib::spawn_command_line_sync("iwctl adapter phy0 set-property Powered on");
+    Glib::spawn_command_line_async("iwctl station wlan0 scan");
 
     sock = nl_socket_alloc();
     ::pipe(pipe);
@@ -129,38 +151,37 @@ void WifiGUI::refresh() {
     ")", &out);
 
     std::string line;
-    std::vector<std::string> names;
     std::istringstream stream(out);
 
-    while (std::getline(stream, line)) {
-        bool flag = true;
-        APData data = APData(line);
-        names.push_back(data.name);
+    std::unordered_set<std::string> names;
+    std::vector<Gtk::Widget*> toRemove;
 
-        for (auto *entry: wifiList.get_children()) {
-            if (((WifiEntry*) entry)->update(data)) {
-                flag = false;
+    while (std::getline(stream, line)) {
+        APData data(line);
+        names.insert(data.name);
+
+        bool updated = false;
+        for (auto *entry : wifiList.get_children()) {
+            auto wifiEntry = static_cast<WifiEntry*>(entry);
+            if (wifiEntry->update(data)) {
+                updated = true;
                 break;
             }
         }
 
-        if (flag) {
+        if (!updated) {
             auto entry = Gtk::make_managed<WifiEntry>(data);
             entry->bindConfig(config);
             wifiList.append(*entry);
         }
     }
 
-    for (auto *entry: wifiList.get_children()) {
-        bool flag = true;
+    auto children = wifiList.get_children();
+    for (auto it = children.rbegin(); it != children.rend(); ++it) {
+        auto wifiEntry = static_cast<WifiEntry*>(*it);
 
-        for (const std::string &name: names) {
-            if (((WifiEntry *) entry)->getSSID() == name)
-                flag = false;
-        }
-
-        if (flag) {
-            wifiList.remove(*entry);
+        if (names.find(wifiEntry->getSSID()) == names.end()) {
+            wifiList.remove(*wifiEntry);
         }
     }
 }
