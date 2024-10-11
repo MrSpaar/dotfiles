@@ -79,7 +79,6 @@ WifiConfig::WifiConfig() {
     fieldsBox.append(domainField);
     fieldsBox.append(method2Field);
     fieldsBox.append(identity2Field);
-    onMethodChange();
 
     scroller.set_child(fieldsBox);
     append(scroller);
@@ -113,7 +112,6 @@ void WifiConfig::update(const APData &data) {
 
     if (out.empty()) {
         methodField.widget.set_active_text("PSK");
-        onMethodChange();
         return;
     }
 
@@ -130,7 +128,10 @@ void WifiConfig::update(const APData &data) {
             identityField.widget.set_text(value);
         } else if (key == "Passphrase" || key == "EAP-Password") {
             passwordField.widget.set_text(value);
-            methodField.widget.set_active_text("PSK");
+
+            if (key == "Passphrase") {
+                methodField.widget.set_active_text("PSK");
+            }
         } else if (ends_with(key, "CACert")) {
             caCertField.widget.set_text(value);
         } else if (ends_with(key, "ClientCert")) {
@@ -150,8 +151,17 @@ void WifiConfig::update(const APData &data) {
 }
 
 inline void moveFile(const std::string &filename) {
+    std::string removeCommand = "rm /var/lib/iwd/";
+    std::string moveCommand = "mv -f '/tmp/" + filename + "' '/var/lib/iwd/" + filename + '\'';
+
+    if (ends_with(filename, "psk")) {
+        removeCommand += filename.substr(0, filename.size()-4) + ".8021x";
+    } else {
+        removeCommand += filename.substr(0, filename.size()-6) + ".psk";
+    }
+
     Glib::spawn_command_line_sync(
-        "pkexec --disable-internal-agent mv '/tmp/" + filename + "' '/var/lib/iwd/" + filename + '\''
+        "pkexec --disable-internal-agent sh -c '" + moveCommand + " && " + removeCommand + "'"
     );
 }
 
