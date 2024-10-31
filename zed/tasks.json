@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Meson build",
+    "command": "meson compile -C build && ./build/bin",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never",
+    "shell": "system"
+  }
+]

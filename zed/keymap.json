@@ -1,0 +1,8 @@
+[
+  {
+    "bindings": {
+      "ctrl-:": "workspace::NewTerminal",
+      "ctrl-!": "editor::ToggleComments"
+    }
+  }
+]

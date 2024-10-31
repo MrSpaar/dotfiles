@@ -1,0 +1,37 @@
+{
+    "features": {
+        "inline_completion_provider": "none"
+    },
+    "telemetry": {
+        "metrics": false,
+        "diagnostics": false
+    },
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Atelier Plateau Dark"
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "diagnosticMode": "workspace",
+                    "typeCheckingMode": "strict"
+                },
+                "python": {
+                    "pythonPath": ".venv/bin/python"
+                }
+            }
+        }
+    },
+    "languages": {
+        "JSONC": {
+            "tab_size": 4
+        },
+        "Meson": {
+            "tab_size": 4
+        }
+    }
+}
