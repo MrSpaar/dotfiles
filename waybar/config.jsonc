@@ -3,51 +3,37 @@
     "spacing": 4,
     "reload_style_on_change": true,
 
-    "modules-left": [
-        "battery",
-        "group/hardware",
-        "tray"
-    ],
+    "modules-left": ["battery", "group/hardware", "tray"],
     "battery": {
         "states": {
             "warning": 30,
-            "critical": 15
+            "critical": 15,
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
     },
     "group/hardware": {
         "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "memory"
-        ]
+        "modules": ["cpu", "memory"],
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
     },
 
-    "modules-right": [
-        "group/system",
-        "group/light",
-        "group/clock"
-    ],
+    "modules-right": ["group/system", "group/light", "group/clock"],
     "group/system": {
         "orientation": "horizontal",
-        "modules": [
-            "pulseaudio",
-            "network"
-        ]
+        "modules": ["pulseaudio", "network"],
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -55,7 +41,7 @@
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": " {format_source}",
         "format-source": " {volume}% ",
-        "format-source-muted": " ",
+        "format-source-muted": "  ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -63,9 +49,9 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", ""],
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
     },
     "network": {
         "format-wifi": "{essid} {icon}",
@@ -74,63 +60,54 @@
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
-        "on-click": "~/Dots/waybar/dialaar/build/bin",
+        "on-click": "iwgtk",
     },
     "group/light": {
         "orientation": "horizontal",
-        "modules": [
-            "backlight",
-            "custom/scheme-switcher"
-        ]
+        "modules": ["backlight", "custom/scheme-switcher"],
     },
     "backlight": {
-        "format": "{percent}% {icon}",
+        "format": "{percent}%  󰃠",
         "tooltip": false,
-        "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
     "custom/scheme-switcher": {
         "tooltip-format": "Switch scheme",
         "format": "{icon}",
         "format-icons": {
             "dark": "",
-            "light": ""
+            "light": "",
         },
         "return-type": "json",
         "signal": 8,
         "exec": "bash ~/.config/waybar/scripts/theme.sh json",
-        "on-click": "bash ~/.config/waybar/scripts/switch.sh"
+        "on-click": "bash ~/.config/waybar/scripts/switch.sh",
     },
     "group/clock": {
         "orientation": "horizontal",
-            "drawer": {
+        "drawer": {
             "transition-duration": 500,
             "children-class": "not-power",
-            "transition-left-to-right": false
+            "transition-left-to-right": false,
         },
-        "modules": [
-            "clock",
-            "custom/poweroff",
-            "custom/reboot",
-            "custom/lock"
-        ]
+        "modules": ["clock", "custom/poweroff", "custom/reboot", "custom/lock"],
     },
     "clock": {
-        "format": "{:%a %d/%m/%Y %H:%M} ",
-        "tooltip": false
+        "format": "{:%a %d/%m/%Y %H:%M}",
+        "tooltip": false,
     },
     "custom/poweroff": {
         "format": "⏻",
         "tooltip-format": "Shutdown",
-        "on-click": "poweroff"
+        "on-click": "poweroff",
     },
     "custom/reboot": {
         "format": "",
         "tooltip-format": "Reboot",
-        "on-click": "reboot"
+        "on-click": "reboot",
     },
     "custom/lock": {
         "format": "",
         "tooltip-format": "Sleep",
-        "on-click": "THEME=$(~/.config/waybar/scripts/theme.sh) hyprlock & sleep 0.7 && systemctl suspend"
-    }
+        "on-click": "THEME=$(~/.config/waybar/scripts/theme.sh) hyprlock & sleep 0.7 && systemctl suspend",
+    },
 }

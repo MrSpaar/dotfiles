@@ -54,11 +54,11 @@ window#waybar,
 }
 
 #clock {
-    padding-right: 6px;
+    padding-right: 4px;
 }
 
 #battery {
-    padding-right: 12px;
+    padding-right: 8px;
 }
 
 #network,

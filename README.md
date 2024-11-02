@@ -7,7 +7,6 @@ Configuration files, scripts and modules I use with my [Arch](https://archlinux.
 - [SDDM](https://github.com/sddm/sddm): Wayland display manager
 - Media keys : volume, mic, brightness, lock, screenshot (+ screencast) and more
 - Configurable theme switcher for GTK3, GTK4, qt5 and qt6 apps, Dunst, Rofi and wallpaper (using [hyprpaper](https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/))
-- GUI `iwd` manager (supports PSK, PWD, TLS, TTLS and PEAP)
 
 > [!TIP]
 > For more informations, look at the [wiki](https://github.com/MrSpaar/dotfiles/wiki).
