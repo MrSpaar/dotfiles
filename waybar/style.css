@@ -38,7 +38,6 @@ window#waybar,
     background-color: transparent;
 }
 
-#battery,
 #hardware,
 #system,
 #light {
@@ -58,7 +57,7 @@ window#waybar,
 }
 
 #battery {
-    padding-right: 8px;
+    padding-right: 12px;
 }
 
 #network,

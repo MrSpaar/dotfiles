@@ -1,4 +1,6 @@
 #!/bin/bash
+pidof slurp && exit 0
+
 if [ -n "$1" ]; then
     DIR="$1"
 else

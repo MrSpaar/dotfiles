@@ -27,7 +27,7 @@
     width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = (65, 400)
 
     # Position the notification in the top right corner
     origin = top-right
@@ -331,21 +331,21 @@
 
 
 [urgency_low]
-    background = "#212121"
+    background = "#ededed"
     foreground = "#888888"
     timeout = 5
     highlight = "#64727dfe"
 
 [urgency_normal]
-    background = "#212121"
-    foreground = "#ffffff"
+    background = "#ededed"
+    foreground = "#000000"
     timeout = 5
     override_pause_level = 30
     highlight = "#64727dfe"
 
 [urgency_critical]
-    background = "#212121"
-    foreground = "#ffffff"
+    background = "#ededed"
+    foreground = "#000000"
     timeout = 0
     frame_color = "#FF7276"
     override_pause_level = 60

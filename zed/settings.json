@@ -1,37 +1,26 @@
 {
-    "features": {
-        "inline_completion_provider": "none"
-    },
-    "telemetry": {
-        "metrics": false,
-        "diagnostics": false
-    },
-    "ui_font_size": 16,
-    "buffer_font_size": 16,
-    "theme": {
-        "mode": "system",
-        "light": "One Light",
-        "dark": "Atelier Plateau Dark"
-    },
-    "lsp": {
-        "pyright": {
-            "settings": {
-                "python.analysis": {
-                    "diagnosticMode": "workspace",
-                    "typeCheckingMode": "strict"
-                },
-                "python": {
-                    "pythonPath": ".venv/bin/python"
-                }
-            }
-        }
-    },
-    "languages": {
-        "JSONC": {
-            "tab_size": 4
-        },
-        "Meson": {
-            "tab_size": 4
-        }
+  "features": {
+    "inline_completion_provider": "none"
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Atelier Plateau Dark"
+  },
+  "file_types": {
+    "XML": ["xaml", "xml"],
+    "TOML": ["toml", "service"]
+  },
+  "file_scan_exclusions": [".ropeproject", "__pycache__", ".cache", "build/*"],
+  "languages": {
+    "Python": {
+      "language_servers": ["!pylsp", "pyright"]
     }
+  }
 }
